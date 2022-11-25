@@ -25,7 +25,7 @@ public class PlayState extends State{
     @Override
     public void render(SpriteBatch sb) {
         sb.begin();
-        sb.draw(tank, 10, 50);
+        sb.draw(tank, 10, 85);
         sb.end();
 
     }

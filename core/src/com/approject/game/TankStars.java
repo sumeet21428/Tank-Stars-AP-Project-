@@ -4,7 +4,9 @@ import com.approject.game.States.GameStateManager;
 import com.approject.game.States.MenuState;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
@@ -16,6 +18,7 @@ public class TankStars extends ApplicationAdapter {
 
 	private GameStateManager gsm;
 	private SpriteBatch batch;
+	private BitmapFont font;
 
 	@Override
 	public void create () {
@@ -23,6 +26,8 @@ public class TankStars extends ApplicationAdapter {
 		gsm = new GameStateManager();
 		ScreenUtils.clear(0 , 0, 0, 1);
 		gsm.push(new MenuState(gsm));
+		font = new BitmapFont();
+		font.setColor(Color.RED);
 	}
 
 	@Override
@@ -35,5 +40,6 @@ public class TankStars extends ApplicationAdapter {
 	@Override
 	public void dispose () {
 		batch.dispose();
+		font.dispose();
 	}
 }
