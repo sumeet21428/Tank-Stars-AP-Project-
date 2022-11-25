@@ -1,8 +1,12 @@
 package com.approject.game.States;
 
 import com.approject.game.TankStars;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 
 import org.w3c.dom.Text;
 
@@ -15,18 +19,24 @@ public class MenuState extends State{
     public MenuState(GameStateManager gsm) {
         super(gsm);
         background = new Texture("bg.png");
-        playBtn = new Texture("playbtn.png");
-        resBtn = new Texture("resbtn.png");
-        exitBtn = new Texture("exitbtn.png");
+        playBtn = new Texture("NewGame.png");
+        resBtn = new Texture("ResumeGame.png");
+        exitBtn = new Texture("EXIT.png");
     }
 
     @Override
     public void handleInput() {
+        if(Gdx.input.justTouched())
+        {
+            gsm.set(new PlayState(gsm));
+            dispose();
+        }
 
     }
 
     @Override
     public void update(float dt) {
+        handleInput();
 
     }
 
@@ -38,6 +48,13 @@ public class MenuState extends State{
         sb.draw(resBtn, 0, 0);
         sb.draw(exitBtn, (TankStars.WIDTH) - playBtn.getWidth() , (0));
         sb.end();
+
+    }
+
+    @Override
+    public void dispose() {
+        background.dispose();
+        playBtn.dispose();
 
     }
 }

@@ -21,7 +21,7 @@ public class TankStars extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 		gsm = new GameStateManager();
-		ScreenUtils.clear(1, 0, 0, 1);
+		ScreenUtils.clear(0 , 0, 0, 1);
 		gsm.push(new MenuState(gsm));
 	}
 
