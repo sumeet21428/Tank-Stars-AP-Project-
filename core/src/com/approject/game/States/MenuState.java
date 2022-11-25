@@ -118,7 +118,7 @@ public class MenuState extends State {
 
             if (playButtonRectangle.contains(touchPos.x, touchPos.y)) {
                 batch.begin();
-                batch.draw(playBtn, 1, 1);
+                batch.draw(playBtn, playButtonRectangle.x, playButtonRectangle.y);
                 batch.end();
 
             }
@@ -130,10 +130,8 @@ public class MenuState extends State {
         sb.end();
 
 
-        batch.begin();
-        font.draw(batch, "Click anywhere to start!", 300, 300);
-//        batch.draw(playBtn, playButtonRectangle.x, playButtonRectangle.y);
-        batch.end();
+
+
 
 
 
@@ -149,5 +147,6 @@ public class MenuState extends State {
     public void dispose() {
         background.dispose();
         playBtn.dispose();
+
     }
 }
