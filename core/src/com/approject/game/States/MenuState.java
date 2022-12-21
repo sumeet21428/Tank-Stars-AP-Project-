@@ -54,6 +54,11 @@ public class MenuState extends State {
 
     @Override
     public void handleInput() {
+
+        if(Gdx.input.justTouched()){
+            gsm.set(new PlayState(gsm));
+            dispose();
+        }
 //        if (Gdx.input.justTouched()) {
 //            Vector3 touchPos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
 //            camera.unproject(touchPos);
@@ -92,12 +97,7 @@ public class MenuState extends State {
 
     @Override
     public void render(SpriteBatch sb) {
-//        sb.begin();
-//        sb.draw(background, 0, 0, TankStars.WIDTH, TankStars.HEIGHT);
-//        sb.draw(playBtn, (TankStars.WIDTH / 2) - (playBtn.getWidth() / 2), (0));
-//        sb.draw(resBtn, 0, 0);
-//        sb.draw(exitBtn, (TankStars.WIDTH) - playBtn.getWidth(), (0));
-//        sb.end();
+
 
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -110,8 +110,9 @@ public class MenuState extends State {
         sb.draw(playBtn, (TankStars.WIDTH / 2) - (playBtn.getWidth() / 2), (0));
         sb.draw(resBtn, 0, 0);
         sb.draw(exitBtn, (TankStars.WIDTH) - playBtn.getWidth(), (0));
+        sb.end();
 
-        if (Gdx.input.isTouched()) {
+        if (Gdx.input.isTouched() ) {
             Vector3 touchPos = new Vector3();
             touchPos.set(Gdx.input.getX(), Gdx.input.getY(), 0);
             camera.unproject(touchPos);
@@ -127,20 +128,6 @@ public class MenuState extends State {
 
 
         }
-        sb.end();
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     @Override
@@ -149,4 +136,5 @@ public class MenuState extends State {
         playBtn.dispose();
 
     }
+
 }
